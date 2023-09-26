@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class student{
@@ -39,6 +40,9 @@ class student{
         System.out.println("Address: "+address);
         System.out.println("ContactNumber: "+contactNumber);
     }
+
+    public void print() {
+    }
 }
 
 //add class called course
@@ -48,9 +52,74 @@ class Course{
     private String name;
     private String instructor;
 
-
-}
-
-public static void main(String[] args) {
+    private ArrayList<student> students = new ArrayList<student>();
     
+    //create a constructor to the course
+    public Course(String courseId, String name, String instructor){
+        this.courseId = courseId;
+        this.name = name;
+        this.instructor = instructor;
+    }
+
+        public Course() {
+    }
+
+        //create a read method with scanner
+        public void read(){
+            Scanner scn = new Scanner(System.in);
+            System.out.println("Enter Course Id: ");
+            courseId =scn.next();
+    
+            System.out.println("Enter Course name: ");
+            name=scn.next();
+    
+            System.out.println("Enter Course instructor: ");
+            instructor=scn.next();
+        }
+
+        //create a method to add students
+        public void addStudent(student s){
+            students.add(s);
+        }
+
+        //create a print method
+        public void print(){
+            System.out.println("Course Id: "+courseId);
+            System.out.println("Course name: "+name);
+            System.out.println("Course instructor: "+instructor);
+            System.out.println("Students: ");
+            
+            for(student s: students){
+                s.print();
+            }
+        }
 }
+
+//crrating a class called StudentApp
+class StudentApp{
+    public static void main(String[] args) {
+        //arraylist for students
+        ArrayList<student> students = new ArrayList<student>();
+        //arraylist for course
+        ArrayList<Course> courses = new ArrayList<Course>();
+
+        //create a for loop to read the students
+        for(int i=0; i<2; i++){
+            student s = new student();
+            s.read();
+            students.add(s);
+        }
+
+        //create a for loop to read the courses
+        for(int i=0; i<2; i++){
+            Course c = new Course();
+            c.read();
+
+            //create a for loop to add students 
+            for(int j=0; j<2; j++){
+                c.addStudent(students.get(j));
+            }
+        }
+    }
+}
+
