@@ -52,7 +52,7 @@ class Course{
     private String name;
     private String instructor;
 
-    private ArrayList<student> students = new ArrayList<student>();
+    private ArrayList<student> enrolledStudents = new ArrayList<student>();
     
     //create a constructor to the course
     public Course(String courseId, String name, String instructor){
@@ -79,7 +79,7 @@ class Course{
 
         //create a method to add students
         public void addStudent(student s){
-            students.add(s);
+            enrolledStudents.add(s);
         }
 
         //create a print method
@@ -87,9 +87,9 @@ class Course{
             System.out.println("Course Id: "+courseId);
             System.out.println("Course name: "+name);
             System.out.println("Course instructor: "+instructor);
-            System.out.println("Students: ");
+            System.out.println("Enrolled Students: "+enrolledStudents.size());
             
-            for(student s: students){
+            for(student s: enrolledStudents){
                 s.print();
             }
         }
@@ -116,9 +116,15 @@ class StudentApp{
             c.read();
 
             //create a for loop to add students 
-            for(int j=0; j<2; j++){
-                c.addStudent(students.get(j));
+            for(student s: students){
+                c.addStudent(s);
             }
+            courses.add(c);
+        }
+
+        //create a for loop to print the courses
+        for(Course c: courses){
+            c.print();
         }
     }
 }
