@@ -23,13 +23,13 @@ class student{
         System.out.println("Enter Student Id : ");
         StudentId =scn.next();
 
-        System.out.println("Enter Student name: ");
+        System.out.println("Enter Student name : ");
         name=scn.next();
 
-        System.out.println("Enter Student address: ");
+        System.out.println("Enter Student address : ");
         address=scn.next();
 
-        System.out.println("Enter contact number: ");
+        System.out.println("Enter contact number : ");
         contactNumber=scn.next();
     }
     
