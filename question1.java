@@ -117,7 +117,7 @@ class StudentApp{
 
             //create a for loop to add students 
             for(student s: students){
-                c.addStudent(s);
+                c.addStudent(s); 
             }
             courses.add(c);
         }
