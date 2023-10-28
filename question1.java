@@ -20,7 +20,7 @@ class student{
 
     public void read(){
         Scanner scn = new Scanner(System.in);
-        System.out.println("Enter Student Id : ");
+        System.out.println("Enter Student Id : ") ;
         StudentId =scn.next();
 
         System.out.println("Enter Student name : ");
